@@ -30,11 +30,11 @@ def take_orders():
     orders = []
     while True:
         try:
-            order_number = int(input("Enter the item number you'd like to order (Enter 0 to finish): "))
+            order_number = int(input("Enter the item number you'd like to order (Enter 0 to finish): \n"))
             if order_number == 0:
                 break
             elif order_number in menu:
-                quantity = int(input(f"How many {menu[order_number]['item']} would you like to order? "))
+                quantity = int(input(f"How many {menu[order_number]['item']} would you like to order? \n"))
                 if quantity > 0:
                     orders.append({"item": menu[order_number]["item"], "quantity": quantity})
                     print("Added to your order.")
