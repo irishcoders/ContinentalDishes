@@ -1,4 +1,4 @@
- import gspread
+import gspread
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -63,7 +63,6 @@ def take_orders():
     return orders
 
 
-
 def print_receipt(orders):
     """
     This function prints the receipt for the user order to the terminal
@@ -74,17 +73,23 @@ def print_receipt(orders):
     print("Receipt:")
     total = 0
     for order in orders:
-        item_price = menu[next(key for key, value in menu.items() if value["item"] == order["item"])]["price"]
+        item_price = menu[next(key for key, value in menu.items() if value["item"] == 
+        order["item"])]["price"]
         total += item_price * order["quantity"]
         print(f"{order['quantity']} x {order['item']} - ${item_price} each")
     return total
 
 
-
 # Main program
-if  __name__ == "__main__":
+def main():
+    """
+    run all program function here
+    """
     display_menu()
     orders = take_orders()
     total = print_receipt(orders)
     print(f"Total: ${total}")
     print("Thank you for your order! Please pay at the counter and enjoy your meal!")
+
+if __name__ == "__main__":
+    main()
