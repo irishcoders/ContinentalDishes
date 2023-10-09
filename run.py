@@ -52,8 +52,8 @@ def print_receipt(orders):
     """
     This function prints the receipt for the user order to the terminal
     """
-    print("\nThank you! We are processing the receipt for your order.")
-    print("Updating customer order worksheet...\n")
+    print("\nPlease wait while we generate your receipt...")
+    print("Your order receipt has been generated! See details below:..\n")
 
     print("Receipt:")
     total = 0
@@ -63,9 +63,12 @@ def print_receipt(orders):
         print(f"{order['quantity']} x {order['item']} - ${item_price} each")
     return total
 
+
+
 # Main program
 if  __name__ == "__main__":
     display_menu()
     orders = take_orders()
     total = print_receipt(orders)
     print(f"Total: ${total}")
+    print("Thank you for your order! Please pay at the counter and enjoy your meal!")
