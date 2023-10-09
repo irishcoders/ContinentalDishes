@@ -27,3 +27,37 @@ menu = {
     9: {"item": "Fanta", "price": 10},
     10: {"item": "Bottled Water", "price": 7}
 }
+
+
+def display_menu():
+    """
+    This function displays the list of menu and prices to the user/customer
+    """
+    print("Welcome to Continental Dishes! Here's our menu:")
+    for item_number, dish in menu.items():
+        print(f"{item_number}. {dish['item']} - ${dish['price']}")
+
+
+def take_orders():
+    """
+    This function takes the customer order and handles the error message if the user enters an
+    incorrect input
+    """
+    orders = []
+    while True:
+        try:
+            order_number = int(input("Enter the item number you'd like to order (Enter 0 to finish): "))
+            if order_number == 0:
+                break
+            elif order_number in menu:
+                quantity = int(input(f"How many {menu[order_number]['item']} would you like to order? "))
+                if quantity > 0:
+                    orders.append({"item": menu[order_number]["item"], "quantity": quantity})
+                    print("Added to your order.")
+                else:
+                    print("Quantity must be greater than 0.")
+            else:
+                print("Invalid item number. Please select a number within the menu list.")
+        except ValueError:
+            print("Invalid input. Please enter the valid item number for the item you want to order, then enter a quantity.")
+    return orders
