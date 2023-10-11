@@ -1,4 +1,5 @@
 from google.oauth2.service_account import Credentials
+import pyfiglet
 from colorama import Fore, Back, Style
 from tabulate import tabulate
 
@@ -16,10 +17,10 @@ menu = {
     10: {"item": "Bottled Water", "price": 7}
 }
 
-# Convert the menu dictionary into a list of lists
+# This variable will convert the menu dictionary into a list of lists
 table = [[key, value["item"], value["price"]] for key, value in menu.items()]
 
-# Define the headers for the table
+# variable (headers) for the table
 headers = ["Item Number", "Item Name", "Price"]
 
 
@@ -34,7 +35,8 @@ def display_menu():
 
 def take_orders():
     """
-    This function takes the customer order and handles the error message if the user enters an
+    This function takes the customer order and handles the 
+    error message if the user enters an
     incorrect input
     """
     orders = []
@@ -47,13 +49,13 @@ def take_orders():
                 quantity = int(input(f"How many {menu[order_number]['item']} would you like to order? \n"))
                 if quantity > 0:
                     orders.append({"item": menu[order_number]["item"], "quantity": quantity})
-                    print(Fore.GREEN + "Added to your order." + Style.RESET_ALL)  # Print in green
+                    print(Fore.GREEN + "Added to your order." + Style.RESET_ALL)  # Text in green
                 else:
-                    print(Fore.RED + "Quantity must be greater than 0." + Style.RESET_ALL)  # Print in red
+                    print(Fore.RED + "Quantity must be greater than 0." + Style.RESET_ALL)  # Text in red
             else:
-                print(Fore.RED + "Invalid item number. Please select a number within the menu list." + Style.RESET_ALL)  # Print in red
+                print(Fore.RED + "Invalid item number. Please select a number within the menu list." + Style.RESET_ALL)  # Text in red
         except ValueError:
-            print(Fore.RED + "Invalid input. Please enter the valid item number for the item you want to order, then enter a quantity." + Style.RESET_ALL)  # Print in red
+            print(Fore.RED + "Invalid input. Please enter the valid item number for the item you want to order, then enter a quantity." + Style.RESET_ALL)  # Text in red
     return orders
 
 
@@ -62,14 +64,14 @@ def print_receipt(orders):
     This function prints the receipt for the user order to the terminal
     """
     print("\nPlease wait while we generate your receipt...")
-    print("Your order receipt has been generated! See details below:..\n")
+    print("Your order receipt has been generated! See details below: \n")
 
     print("Receipt:")
     total = 0
     for order in orders:
         item_price = menu[next(key for key, value in menu.items() if value["item"] == order["item"])]["price"]
         total += item_price * order["quantity"]
-        print(Fore.YELLOW + f"{order['quantity']} x {order['item']} - ${item_price} each" + Style.RESET_ALL)
+        print(Fore.YELLOW + f"{order['quantity']} x {order['item']} - ${item_price} each" + Style.RESET_ALL)  # Text in yellow
     return total
 
 
@@ -78,11 +80,19 @@ def main():
     """
     run all program function here
     """
+    custom_figlet = pyfiglet.Figlet(font='small')  # PyFiglet font
+
+    # This displays a large, fancy welcome message
+    welcome_message = custom_figlet.renderText("Welcome to Continental Dishes Restaurant")
+    print(Fore.YELLOW + welcome_message + Style.RESET_ALL)  # Text in yellow using colorama
+
+    print("Below is the list of our menu: ")
     display_menu()
     orders = take_orders()
     total = print_receipt(orders)
-    print(Fore.YELLOW + f"Total: ${total}" + Style.RESET_ALL)
-    print(Fore.GREEN + "Thank you for your order! Please pay at the counter and enjoy your meal!" + Style.RESET_ALL)
+    print(Fore.YELLOW + f"Total: ${total}" + Style.RESET_ALL)  # Text in yellow
+    print(Fore.GREEN + "Thank you for your order! Please pay at the counter and enjoy your meal!" + Style.RESET_ALL)  # Text in green
+
 
 if __name__ == "__main__":
     main()
