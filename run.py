@@ -42,13 +42,13 @@ def take_orders():
     orders = []
     while True:
         try:
-            order_number = int(input("Enter the item number you'd like to \
-            order (Enter 0 to finish): \n"))
+            order_number = int(input("Enter the item number you'd like to "
+                                     "order (Enter 0 to finish): \n"))
             if order_number == 0:
                 break
             elif order_number in menu:
-                quantity = int(input(f"How many {menu[order_number]['item']} \
-                would you like to order? \n"))
+                quantity = int(input(f"How many {menu[order_number]['item']}"
+                                     "would you like to order? \n"))
                 if quantity > 0:
                     orders.append({"item": menu[order_number][
                         "item"], "quantity": quantity})
@@ -57,19 +57,19 @@ def take_orders():
                     )  # Text in green
                 else:
                     print(
-                     Fore.RED + "Quantity must be greater \
-                     than 0." + Style.RESET_ALL
+                     Fore.RED + "Quantity must be greater "
+                     "than 0." + Style.RESET_ALL
                     )  # Text in red
             else:
                 print(
-                    Fore.RED + "Invalid item number. \
-                    Please select a number within \
-                    the menu list." + Style.RESET_ALL)  # Text in red
+                    Fore.RED + "Invalid item number. "
+                    "Please select a number within "
+                    "the menu list." + Style.RESET_ALL)  # Text in red
         except ValueError:
             print(
-                Fore.RED + "Invalid input. Please enter the valid item number \
-                for the item you want to order, then enter a \
-                quantity." + Style.RESET_ALL
+                Fore.RED + "Invalid input. Please enter the valid item number "
+                "for the item you want to order, then enter a "
+                "quantity." + Style.RESET_ALL
                 )  # Text in red
     return orders
 
@@ -114,8 +114,8 @@ def main():
     total = print_receipt(orders)
     print(Fore.YELLOW + f"Total: ${total}" + Style.RESET_ALL)  # Text in yellow
     print(
-        Fore.GREEN + "Thank you for your order! Please pay at the counter and \
-        enjoy your meal!" + Style.RESET_ALL)  # Text in green
+        Fore.GREEN + "Thank you for your order! Please pay at the counter and "
+        "enjoy your meal!" + Style.RESET_ALL)  # Text in green
 
 
 if __name__ == "__main__":
