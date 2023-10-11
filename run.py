@@ -105,8 +105,8 @@ def main():
     # This displays a large, fancy welcome message
     welcome_message = custom_figlet.renderText(
         "Welcome to Continental Dishes Restaurant")
-    print(Fore.BLUE + welcome_message + Style.RESET_ALL)  \
-        # Text in blue using colorama
+    print(Fore.GREEN + welcome_message + Style.RESET_ALL)  \
+        # Text in green using colorama
 
     print("Below is the list of our menu: ")
     display_menu()
