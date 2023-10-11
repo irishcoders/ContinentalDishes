@@ -1,11 +1,14 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from colorama import Fore, Back, Style
+from tabulate import tabulate
 
+# Initialize Google Sheets
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
-    ]
+]
 
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
@@ -28,14 +31,20 @@ menu = {
     10: {"item": "Bottled Water", "price": 7}
 }
 
+# Convert the menu dictionary into a list of lists
+table = [[key, value["item"], value["price"]] for key, value in menu.items()]
+
+# Define the headers for the table
+headers = ["Item Number", "Item Name", "Price"]
+
 
 def display_menu():
     """
     This function displays the list of menu and prices to the user/customer
     """
-    print("Welcome to Continental Dishes! Here's our menu:")
-    for item_number, dish in menu.items():
-        print(f"{item_number}. {dish['item']} - ${dish['price']}")
+    table = [[key, dish["item"], dish["price"]] for key, dish in menu.items()]
+    headers = ["Item Number", "Item Name", "Price"]
+    print(tabulate(table, headers, tablefmt="grid"))
 
 
 def take_orders():
@@ -53,13 +62,13 @@ def take_orders():
                 quantity = int(input(f"How many {menu[order_number]['item']} would you like to order? \n"))
                 if quantity > 0:
                     orders.append({"item": menu[order_number]["item"], "quantity": quantity})
-                    print("Added to your order.")
+                    print(Fore.GREEN + "Added to your order." + Style.RESET_ALL)  # Print in green
                 else:
-                    print("Quantity must be greater than 0.")
+                    print(Fore.RED + "Quantity must be greater than 0." + Style.RESET_ALL)  # Print in red
             else:
-                print("Invalid item number. Please select a number within the menu list.")
+                print(Fore.RED + "Invalid item number. Please select a number within the menu list." + Style.RESET_ALL)  # Print in red
         except ValueError:
-            print("Invalid input. Please enter the valid item number for the item you want to order, then enter a quantity.")
+            print(Fore.RED + "Invalid input. Please enter the valid item number for the item you want to order, then enter a quantity." + Style.RESET_ALL)  # Print in red
     return orders
 
 
@@ -73,10 +82,9 @@ def print_receipt(orders):
     print("Receipt:")
     total = 0
     for order in orders:
-        item_price = menu[next(key for key, value in menu.items() if value["item"] == 
-        order["item"])]["price"]
+        item_price = menu[next(key for key, value in menu.items() if value["item"] == order["item"])]["price"]
         total += item_price * order["quantity"]
-        print(f"{order['quantity']} x {order['item']} - ${item_price} each")
+        print(Fore.YELLOW + f"{order['quantity']} x {order['item']} - ${item_price} each" + Style.RESET_ALL)
     return total
 
 
@@ -88,8 +96,8 @@ def main():
     display_menu()
     orders = take_orders()
     total = print_receipt(orders)
-    print(f"Total: ${total}")
-    print("Thank you for your order! Please pay at the counter and enjoy your meal!")
+    print(Fore.YELLOW + f"Total: ${total}" + Style.RESET_ALL)
+    print(Fore.GREEN + "Thank you for your order! Please pay at the counter and enjoy your meal!" + Style.RESET_ALL)
 
 if __name__ == "__main__":
     main()

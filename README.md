@@ -1,16 +1,16 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Continental Dishes Order Placing and Receipt Generator App
 
-Welcome,
+Continental Dishes Order Placing and Receipt Generator App is a simple Python application that allows customers to select menu items, specify quantities, and generate a receipt for their orders. This application is designed for restaurants or food service businesses to streamline the ordering process.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+## Table of Contents
 
-## Reminders
+- Features
+- Usage
+- Installation
+- Contributing
+- Licence 
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
+## Usage
 
 When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
 
