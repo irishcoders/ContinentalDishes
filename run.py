@@ -1,6 +1,7 @@
 import pyfiglet
 from colorama import Fore, Back, Style
 from tabulate import tabulate
+import sys
 
 # This is the list of menu and prices to be displayed to the user/customer
 menu = {
@@ -94,6 +95,31 @@ def print_receipt(orders):
     return total
 
 
+def order_extra(orders):
+    while True:
+        more_orders = input(
+                            Fore.GREEN + "Would you like to order more items? "
+                            "(Enter 'yes' or 'no'): " + Style.RESET_ALL
+                            ).strip().lower()  # Text in green
+        if more_orders == 'yes':
+            print(tabulate(table, headers, tablefmt="grid"))
+            new_orders = take_orders()  # Take more orders
+            orders.extend(new_orders)  # Add new orders to the existing orders
+        elif more_orders == 'no':
+            return  # Exits the function
+        else:
+            print(
+                  Fore.RED + "Invalid input, "
+                  "Please enter 'yes' or 'no'." + Style.RESET_ALL
+                  )  # Text in red
+
+        # This will add the new order and updates the receipt
+        total = print_receipt(orders)
+        print(
+             Fore.YELLOW + f"Total: ${total}" + Style.RESET_ALL
+             )  # Text in yellow
+
+
 # Main program
 def main():
     """
@@ -112,9 +138,13 @@ def main():
     orders = take_orders()
     total = print_receipt(orders)
     print(Fore.YELLOW + f"Total: ${total}" + Style.RESET_ALL)  # Text in yellow
+
+    # Ask if the user wants to order more items
+    order_extra(orders)
     print(
         Fore.GREEN + "Thank you for your order! Please pay at the counter and "
         "enjoy your meal!" + Style.RESET_ALL)  # Text in green
+    sys.exit()  # Exits the program
 
 
 if __name__ == "__main__":
