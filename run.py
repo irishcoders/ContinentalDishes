@@ -47,7 +47,7 @@ def take_orders():
             if order_number == 0:
                 break
             elif order_number in menu:
-                quantity = int(input(f"How many {menu[order_number]['item']}"
+                quantity = int(input(f"How many {menu[order_number]['item']} "
                                      "would you like to order? \n"))
                 if quantity > 0:
                     orders.append({"item": menu[order_number][
