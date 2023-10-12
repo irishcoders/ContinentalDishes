@@ -223,9 +223,9 @@ I would like to extend my sincere gratitude and appreciation to the following in
 
 8. **External Resources from Python Morsels**: External resources from Python Morsels, specifically the resource on [Breaking long lines of code](https://www.pythonmorsels.com/breaking-long-lines-code-python), provided essential guidance on maintaining clean code.
 
-9. **Creating Receipts YouTube Tutorials by Tutus Funny**: The YouTube tutorials by Tutus Funny (https://www.youtube.com/watch?v=oNIG_-rftYo) were instrumental in understanding how to create receipts within the application.
+9. **Creating Receipts YouTube Tutorials by Tutus Funny**: The [Creating Receipt tutorials by Tutus Funny](https://www.youtube.com/watch?v=oNIG_-rftYo) were instrumental in understanding how to create receipts within the application.
 
-10. **Dictionary Tutorials by Corey Schafer**: The dictionary tutorials by Corey Schafer (https://www.youtube.com/watch?v=daefaLgNkw0) served as valuable references for working with Python dictionaries in the project.
+10. **Dictionary Tutorials by Corey Schafer**: The [Dictionary tutorials by Corey Schafer](https://www.youtube.com/watch?v=daefaLgNkw0) served as valuable references for working with Python dictionaries in the project.
 
 These contributions, guidance, and resources were instrumental in the development and enhancement of the Continental Dishes Order Placer and Receipt Generator App, and I extend my heartfelt thanks to each of them.
 
