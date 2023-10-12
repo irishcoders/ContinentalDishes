@@ -48,6 +48,8 @@ The app instructs the user to enter 0 to confirm the end of order. Once the user
 
 The program uses error handling to manage user input. If the user enters an invalid item number, quantity, or any other invalid input, it displays a red error message indicating what went wrong. The user is prompted to enter valid input.
 
+![Continental Dishes Main Order Errors](/images/continentaldishes_main_order_error.png)
+
 ### Additional Orders
 
 After the receipt is generated, the user is then asked if they would like to order more items with the option to type in either 'yes' or 'no'. If the user enters 'yes', the menu is displayed again, and they can place additional orders. These orders are appended to the existing order.
@@ -68,7 +70,9 @@ If the user types in any other input which is not 'yes' or 'no', the app informs
 
 ### Exiting The App
 
-The program then exits using Python Library `sys.exit()` after all operations are complete. All operations are complete when the user types no, the final receipt has been generated and the app already instructs the user to pay at the counter.
+The program then exits using Python Library `sys.exit()` after all operations are complete. All operations are complete when the user types 'no', the final receipt has been generated and the app instructs the user to pay at the counter.
+
+![Continental Dishes System Exit](/images/continentaldishes_system_exit.png)
 
 ## Color Arrangements
 
