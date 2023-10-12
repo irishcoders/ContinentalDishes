@@ -207,7 +207,7 @@ The App live link is [Continental Dishes App](https://continentaldishesreceipt-b
 
 I would like to extend my sincere gratitude and appreciation to the following individuals and resources that have contributed to the development of the Continental Dishes Order Placer and Receipt Generator App:
 
-1. **Daisy McGirr (Mentor)**: Special thanks to my mentor, Daisy McGirr, who provided invaluable guidance and suggested the use of Python libraries to enhance the visual appeal of the app. Daisy's mentorship was also very instrumental in adding the additional order function and `SysExit` function.
+1. **Daisy McGirr (Mentor)**: Special thanks to my mentor, Daisy McGirr, who provided invaluable guidance and suggested the use of Python libraries to enhance the visual appeal of the app. Daisy's mentorship was also very instrumental in adding the additional order function and `SysExit` module.
 
 2. **Pyfiglet Library**: The Pyfiglet library played a significant role in creating an eye-catching welcome message that sets the tone for the app's user experience.
 
